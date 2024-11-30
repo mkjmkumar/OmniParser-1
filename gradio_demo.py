@@ -12,7 +12,14 @@ from utils import check_ocr_box, get_yolo_model, get_caption_model_processor, ge
 import torch
 from PIL import Image
 
-yolo_model = get_yolo_model(model_path='weights/icon_detect/best.pt')
+# Get the absolute path to the project root directory
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Update the model path to use the correct filename
+model_path = os.path.join(current_dir, 'weights', 'icon_detect', 'model.pt')
+
+# Update where the model is loaded
+yolo_model = get_yolo_model(model_path=model_path)
 caption_model_processor = get_caption_model_processor(model_name="florence2", model_name_or_path="weights/icon_caption_florence")
 # caption_model_processor = get_caption_model_processor(model_name="blip2", model_name_or_path="weights/icon_caption_blip2")
 
@@ -66,7 +73,8 @@ def process(
 
 
 with gr.Blocks() as demo:
-    gr.Markdown(MARKDOWN)
+    gr.Markdown("# Operations video to operations manual generator")
+    gr.Markdown("### Develop by Mukesh Kumar - Mike")
     with gr.Row():
         with gr.Column():
             image_input_component = gr.Image(
@@ -100,4 +108,5 @@ with gr.Blocks() as demo:
     )
 
 # demo.launch(debug=False, show_error=True, share=True)
-demo.launch(share=True, server_port=7861, server_name='0.0.0.0')
+#demo.launch(share=False)
+demo.launch(server_name="0.0.0.0", server_port=58080, share=False)

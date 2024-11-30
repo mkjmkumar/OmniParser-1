@@ -20,12 +20,34 @@
 ## Install 
 Install environment:
 ```python
-conda create -n "omni" python==3.12
-conda activate omni
+echo 'export PYTHONPATH="/workspace/OmniParser:$PYTHONPATH"' >> ~/.bashrc
+source ~/.bashrc
+echo $PYTHONPATH
+/workspace/OmniParser:
+
 pip install -r requirements.txt
+
+apt-get update && apt-get install -y \
+    libgl1 \
+    libglib2.0-0 \
+    libsm6 \
+    libxext6 \
+    libxrender1 \
+    libopencv-dev \
+    python3-opencv
 ```
 
+# Change directory to some other place to clone microsoft/OmniParser checkpoint
+brew install git-lfs
+git lfs install
+git clone https://huggingface.co/microsoft/OmniParser
+
 Then download the model ckpts files in: https://huggingface.co/microsoft/OmniParser, and put them under weights/, default folder structure is: weights/icon_detect, weights/icon_caption_florence, weights/icon_caption_blip2. 
+
+brew install git-lfs
+git lfs install
+git clone https://huggingface.co/microsoft/OmniParser
+
 
 Finally, convert the safetensor to .pt file. 
 ```python
@@ -58,3 +80,5 @@ If you find our work useful, please consider citing our work:
       url={https://arxiv.org/abs/2408.00203}, 
 }
 ```
+apt install tree
+tree -L 4 -I 'node_modules|git|ls_volume|ui|public'
