@@ -16,7 +16,7 @@ from PIL import Image
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Update the model path to use the correct filename
-model_path = os.path.join(current_dir, 'weights', 'icon_detect', 'model.pt')
+model_path = os.path.join(current_dir, 'weights', 'icon_detect_v1_5', 'model.pt')
 
 # Update where the model is loaded
 yolo_model = get_yolo_model(model_path=model_path)
