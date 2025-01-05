@@ -62,6 +62,30 @@ To run gradio demo, simply run:
 ```python
 python gradio_demo.py
 ```
+## Gradio Demo using gradio_demo_1.py
+To run gradio demo, with Optimized Code for Quick Execution. Here’s a stripped-down version of your gradio_demo.py that removes unnecessary UI components and focuses only on the image upload and parsed screen elements output::
+```python
+python gradio_demo_1.py
+
+## Gradio Demo using gradio_demo_2.py
+To run gradio demo, with Optimized Code for Quick Execution. UI varaibles are added:
+```python
+python gradio_demo_2.py
+
+## Gradio Demo using gradio_demo_2.py
+To run gradio demo, with Optimized Code for Quick Execution. 
+gradio_demo.py to read all parameters from a .env file, which will act as a centralized configuration. The default values will be moved to this file along with comments explaining each parameter.
+
+```python
+python gradio_demo_3.py
+
+
+## Hosting as API, use below installation and run the api.py
+pip install flask python-dotenv torch pillow
+python omniparser_api.py
+
+
+
 
 ## Model Weights License
 For the model checkpoints on huggingface model hub, please note that icon_detect model is under AGPL license since it is a license inherited from the original yolo model. And icon_caption_blip2 & icon_caption_florence is under MIT license. Please refer to the LICENSE file in the folder of each model: https://huggingface.co/microsoft/OmniParser.
