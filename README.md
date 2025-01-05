@@ -88,6 +88,7 @@ python gradio_demo_4_api.py
 ## Call the OmniParser API
 python gradio_demo_4_call_api
 
+## Remember to run the gradio_demo_4_api.py first before calling the api
 
 ## Model Weights License
 For the model checkpoints on huggingface model hub, please note that icon_detect model is under AGPL license since it is a license inherited from the original yolo model. And icon_caption_blip2 & icon_caption_florence is under MIT license. Please refer to the LICENSE file in the folder of each model: https://huggingface.co/microsoft/OmniParser.
