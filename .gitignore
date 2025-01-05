@@ -3,3 +3,5 @@ weights/icon_caption_florence
 weights/icon_detect/
 .gradio
 __pycache__/
+weights/icon_detect_v1_5/model.pt
+weights/icon_detect/model.pt
