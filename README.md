@@ -82,9 +82,11 @@ python gradio_demo_3.py
 
 ## Hosting as API, use below installation and run the api.py
 pip install flask python-dotenv torch pillow
-python omniparser_api.py
+## Run below command to host the api
+python gradio_demo_4_api.py
 
-
+## Call the OmniParser API
+python gradio_demo_4_call_api
 
 
 ## Model Weights License
