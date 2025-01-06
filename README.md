@@ -96,6 +96,7 @@ For the model checkpoints on huggingface model hub, please note that icon_detect
 ## 📚 Citation
 Our technical report can be found [here](https://arxiv.org/abs/2408.00203).
 If you find our work useful, please consider citing our work:
+Yes- Sure
 ```
 @misc{lu2024omniparserpurevisionbased,
       title={OmniParser for Pure Vision Based GUI Agent}, 
