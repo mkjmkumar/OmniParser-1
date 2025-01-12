@@ -2,7 +2,7 @@ import requests
 
 # Function to call the OmniParser API
 def get_parsed_screen_elements(image_path):
-    url = 'http://localhost:58081/process_image'
+    url = 'http://localhost:58090/process_image'
     with open(image_path, 'rb') as img_file:
         files = {'file': img_file}
         response = requests.post(url, files=files)

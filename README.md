@@ -20,10 +20,10 @@
 ## Install 
 Install environment:
 ```python
-echo 'export PYTHONPATH="/workspace/OmniParser:$PYTHONPATH"' >> ~/.bashrc
+echo 'export PYTHONPATH="/workspace:$PYTHONPATH"' >> ~/.bashrc
 source ~/.bashrc
 echo $PYTHONPATH
-/workspace/OmniParser:
+/workspace:
 
 pip install -r requirements.txt
 
@@ -81,12 +81,26 @@ python gradio_demo_3.py
 
 
 ## Hosting as API, use below installation and run the api.py
-pip install flask python-dotenv torch pillow
-## Run below command to host the api
-python gradio_demo_4_api.py
+pip install flask gunicorn torch Pillow python-dotenv
+pip install flasgger
+
+
+## Option-1 : Run below command to host the api
+python python app.py
+
+## Option-2 : Run below command to host the api
+gunicorn -w 4 -b 0.0.0.0:58090 app:app --log-level info --capture-output --worker-class gthread --threads 4 --preload
+
+## Option-3 : Run Gunicorn with the following command to capture logs in /workspace/gunicorn.log
+gunicorn -w 1 -b 0.0.0.0:58090 app:app --log-level info --access-logfile /workspace/gunicorn.log --error-logfile /workspace/gunicorn.log --capture-output --timeout 120
+
 
 ## Call the OmniParser API
-python gradio_demo_4_call_api
+curl -X POST http://localhost:58090/process_image  -F "file=@/workspace/imgs/temp_image.png"
+
+
+## You can access the Swagger documentation by navigating to:
+http://localhost:58090/apidocs/
 
 ## Remember to run the gradio_demo_4_api.py first before calling the api
 
