@@ -1,21 +1,18 @@
 from flask import Flask, request, jsonify
 from flasgger import Swagger
-import torch
 from PIL import Image
-from utils import check_ocr_box, get_yolo_model, get_caption_model_processor, get_som_labeled_img
-from dotenv import load_dotenv
 import os
 import logging
-import tempfile  # <-- for unique temp files
+import tempfile
 
-# Load environment variables
+from dotenv import load_dotenv
 load_dotenv()
 
-# Read values from .env
-BOX_THRESHOLD = float(os.getenv("BOX_THRESHOLD", 0.05))
-IOU_THRESHOLD = float(os.getenv("IOU_THRESHOLD", 0.1))
+# For OCR
+from utils import check_ocr_box
+
+# Environment variables
 USE_PADDLEOCR = os.getenv("USE_PADDLEOCR", "True").lower() == "true"
-IMGSZ = int(os.getenv("IMGSZ", 640))
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -24,14 +21,6 @@ swagger = Swagger(app)
 # Configure logging
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
-
-# Load models once
-model_path = 'weights/icon_detect_v1_5/model.pt'
-yolo_model = get_yolo_model(model_path=model_path)
-caption_model_processor = get_caption_model_processor(
-    model_name="florence2",
-    model_name_or_path="weights/icon_caption_florence"
-)
 
 @app.route('/process_image', methods=['POST'])
 def process_image():
@@ -63,16 +52,16 @@ def process_image():
 
     uploaded_file = request.files['file']
     try:
-        # 1) Load the image in-memory
+        # 1) Load the image in-memory (PIL)
         pil_image = Image.open(uploaded_file.stream)
 
-        # 2) Create a unique temporary file (thread-safe for concurrency)
+        # 2) Create a unique temp file
         with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as tmp:
             temp_path = tmp.name
             pil_image.save(tmp, format='PNG')
 
-        # 3) Use that temp file path in your existing OCR functions
         try:
+            # 3) Run ONLY check_ocr_box to get OCR text
             text, ocr_bbox = check_ocr_box(
                 temp_path,
                 display_img=False,
@@ -80,18 +69,10 @@ def process_image():
                 use_paddleocr=USE_PADDLEOCR
             )
 
-            _, _, parsed_content_list = get_som_labeled_img(
-                temp_path,
-                yolo_model,
-                BOX_TRESHOLD=BOX_THRESHOLD,
-                output_coord_in_ratio=True,
-                ocr_bbox=ocr_bbox,
-                caption_model_processor=caption_model_processor,
-                imgsz=IMGSZ
-            )
-
-            parsed_content = '\n'.join(parsed_content_list)
-            return jsonify({'parsed_content': parsed_content})
+            # 'text' might be the recognized text
+            # If check_ocr_box returns multiple lines, you can join them or structure them
+            # For now, let's just send 'text' directly:
+            return jsonify({'parsed_content': text})
 
         finally:
             # 4) Clean up the temp file
@@ -99,9 +80,9 @@ def process_image():
                 os.remove(temp_path)
 
     except Exception:
-        logger.exception("Error processing image")  # Print full traceback
+        logger.exception("Error processing image")
         return jsonify({'error': 'Internal server error'}), 500
 
 if __name__ == '__main__':
-    # For local debugging only. In production, use gunicorn or another WSGI server.
+    # For local/debug only
     app.run(host='0.0.0.0', port=58090, threaded=True)
