@@ -37,6 +37,8 @@ apt-get update && apt-get install -y \
     python3-opencv
 ```
 
+pip install --upgrade torch ultralytics
+
 # Change directory to some other place to clone microsoft/OmniParser checkpoint
 brew install git-lfs
 git lfs install
