@@ -1,0 +1,292 @@
+{
+    "Screen Elements": [
+        {
+            "Type": "TextBox",
+            "ID": 0,
+            "Text": "9InPrivate",
+            "Context": "General Text"
+        },
+        {
+            "Type": "TextBox",
+            "ID": 1,
+            "Text": "G Google",
+            "Context": "General Text"
+        },
+        {
+            "Type": "TextBox",
+            "ID": 2,
+            "Text": "C",
+            "Context": "General Text"
+        },
+        {
+            "Type": "TextBox",
+            "ID": 3,
+            "Text": "https://www.google.com",
+            "Context": "General Text"
+        },
+        {
+            "Type": "TextBox",
+            "ID": 4,
+            "Text": "Store",
+            "Context": "General Text"
+        },
+        {
+            "Type": "TextBox",
+            "ID": 5,
+            "Text": "GmailImages",
+            "Context": "General Text"
+        },
+        {
+            "Type": "TextBox",
+            "ID": 6,
+            "Text": "About",
+            "Context": "General Text"
+        },
+        {
+            "Type": "TextBox",
+            "ID": 7,
+            "Text": "Sign in",
+            "Context": "General Text"
+        },
+        {
+            "Type": "TextBox",
+            "ID": 8,
+            "Text": "Google",
+            "Context": "General Text"
+        },
+        {
+            "Type": "TextBox",
+            "ID": 9,
+            "Text": "Google Search",
+            "Context": "General Text"
+        },
+        {
+            "Type": "TextBox",
+            "ID": 10,
+            "Text": "I'm Feeling Lucky",
+            "Context": "General Text"
+        },
+        {
+            "Type": "TextBox",
+            "ID": 11,
+            "Text": "Discover all the ways Chrome keeps you safe while you browse",
+            "Context": "General Text"
+        },
+        {
+            "Type": "TextBox",
+            "ID": 12,
+            "Text": "Advertising",
+            "Context": "General Text"
+        },
+        {
+            "Type": "TextBox",
+            "ID": 13,
+            "Text": "Business",
+            "Context": "General Text"
+        },
+        {
+            "Type": "TextBox",
+            "ID": 14,
+            "Text": "Our third decade of climate action: join us.",
+            "Context": "General Text"
+        },
+        {
+            "Type": "TextBox",
+            "ID": 15,
+            "Text": "Privacy",
+            "Context": "General Text"
+        },
+        {
+            "Type": "TextBox",
+            "ID": 16,
+            "Text": "Terms",
+            "Context": "General Text"
+        },
+        {
+            "Type": "TextBox",
+            "ID": 17,
+            "Text": "Settings",
+            "Context": "General Text"
+        },
+        {
+            "Type": "TextBox",
+            "ID": 18,
+            "Text": "How Search works",
+            "Context": "General Text"
+        },
+        {
+            "Type": "TextBox",
+            "ID": 19,
+            "Text": "Q Search",
+            "Context": "General Text"
+        },
+        {
+            "Type": "TextBox",
+            "ID": 20,
+            "Text": "3:55 PM",
+            "Context": "General Text"
+        },
+        {
+            "Type": "TextBox",
+            "ID": 21,
+            "Text": ">_",
+            "Context": "General Text"
+        },
+        {
+            "Type": "TextBox",
+            "ID": 22,
+            "Text": "M",
+            "Context": "General Text"
+        },
+        {
+            "Type": "TextBox",
+            "ID": 23,
+            "Text": "10/25/2024",
+            "Context": "General Text"
+        },
+        {
+            "Type": "IconBox",
+            "ID": 24,
+            "Description": "Microsoft Outlook.",
+            "Context": "UI Icon"
+        },
+        {
+            "Type": "IconBox",
+            "ID": 25,
+            "Description": "Teams.",
+            "Context": "UI Icon"
+        },
+        {
+            "Type": "IconBox",
+            "ID": 26,
+            "Description": "Microsoft OneNote.",
+            "Context": "UI Icon"
+        },
+        {
+            "Type": "IconBox",
+            "ID": 27,
+            "Description": "Email or messaging application.",
+            "Context": "UI Icon"
+        },
+        {
+            "Type": "IconBox",
+            "ID": 28,
+            "Description": "Microsoft 365.",
+            "Context": "UI Icon"
+        },
+        {
+            "Type": "IconBox",
+            "ID": 29,
+            "Description": "uBlock Origin (Ctrl+T)",
+            "Context": "UI Icon"
+        },
+        {
+            "Type": "IconBox",
+            "ID": 30,
+            "Description": "Microsoft Edge browser.",
+            "Context": "UI Icon"
+        },
+        {
+            "Type": "IconBox",
+            "ID": 31,
+            "Description": "a folder for organizing files.",
+            "Context": "UI Icon"
+        },
+        {
+            "Type": "IconBox",
+            "ID": 32,
+            "Description": "a calendar application.",
+            "Context": "UI Icon"
+        },
+        {
+            "Type": "IconBox",
+            "ID": 33,
+            "Description": "Microsoft Edge browser.",
+            "Context": "UI Icon"
+        },
+        {
+            "Type": "IconBox",
+            "ID": 34,
+            "Description": "creating a new document or file.",
+            "Context": "UI Icon"
+        },
+        {
+            "Type": "IconBox",
+            "ID": 35,
+            "Description": "a search function.",
+            "Context": "UI Icon"
+        },
+        {
+            "Type": "IconBox",
+            "ID": 36,
+            "Description": "the Windows operating system.",
+            "Context": "UI Icon"
+        },
+        {
+            "Type": "IconBox",
+            "ID": 37,
+            "Description": "Dictate",
+            "Context": "UI Icon"
+        },
+        {
+            "Type": "IconBox",
+            "ID": 38,
+            "Description": "Copy",
+            "Context": "UI Icon"
+        },
+        {
+            "Type": "IconBox",
+            "ID": 39,
+            "Description": "Close",
+            "Context": "UI Icon"
+        },
+        {
+            "Type": "IconBox",
+            "ID": 40,
+            "Description": "New Tab",
+            "Context": "UI Icon"
+        },
+        {
+            "Type": "IconBox",
+            "ID": 41,
+            "Description": "a favorite or bookmark function.",
+            "Context": "UI Icon"
+        },
+        {
+            "Type": "IconBox",
+            "ID": 42,
+            "Description": "App launcher",
+            "Context": "UI Icon"
+        },
+        {
+            "Type": "IconBox",
+            "ID": 43,
+            "Description": "Close",
+            "Context": "UI Icon"
+        },
+        {
+            "Type": "IconBox",
+            "ID": 44,
+            "Description": "M0,0L9,0 4.5,5z",
+            "Context": "UI Icon"
+        },
+        {
+            "Type": "IconBox",
+            "ID": 45,
+            "Description": "More options",
+            "Context": "UI Icon"
+        },
+        {
+            "Type": "IconBox",
+            "ID": 46,
+            "Description": "Microsoft.",
+            "Context": "UI Icon"
+        },
+        {
+            "Type": "IconBox",
+            "ID": 47,
+            "Description": "Maximize window",
+            "Context": "UI Icon"
+        }
+    ]
+}
