@@ -23,30 +23,41 @@ model_path = 'weights/icon_detect_v1_5/model.pt'
 yolo_model = get_yolo_model(model_path=model_path)
 caption_model_processor = get_caption_model_processor(model_name="florence2", model_name_or_path="weights/icon_caption_florence")
 
-# API route
 @app.route('/process_image', methods=['POST'])
 def process_image():
-    if 'file' not in request.files:
-        return jsonify({'error': 'No file provided'}), 400
+    try:
+        if 'file' not in request.files:
+            return jsonify({'error': 'No file provided'}), 400
 
-    # Read the uploaded file as a PIL image
-    file = request.files['file']
-    image = Image.open(file.stream)
+        file = request.files['file']
+        image = Image.open(file.stream)
 
-    # Save the image to a temporary location
-    temp_image_path = 'imgs/temp_image.png'
-    image.save(temp_image_path)
+        # Save the image temporarily
+        temp_image_path = '/opt/app-root/src/OmniParser/imgs/temp_image.png'
+        image.save(temp_image_path)
 
-    # Process the image using the saved file path
-    text, ocr_bbox = check_ocr_box(temp_image_path, display_img=False, output_bb_format='xyxy', use_paddleocr=USE_PADDLEOCR)
-    _, _, parsed_content_list = get_som_labeled_img(
-        temp_image_path, yolo_model, BOX_TRESHOLD=BOX_THRESHOLD, output_coord_in_ratio=True, ocr_bbox=ocr_bbox, caption_model_processor=caption_model_processor, imgsz=IMGSZ
-    )
+        # Process the image
+        text, ocr_bbox = check_ocr_box(
+            temp_image_path, display_img=False, output_bb_format='xyxy', use_paddleocr=USE_PADDLEOCR
+        )
+        _, _, parsed_content_list = get_som_labeled_img(
+            temp_image_path,
+            yolo_model,
+            BOX_TRESHOLD=BOX_THRESHOLD,  # ensure the parameter name is correct
+            output_coord_in_ratio=True,
+            ocr_bbox=ocr_bbox,
+            caption_model_processor=caption_model_processor,
+            imgsz=IMGSZ
+        )
 
-    # Return the parsed content as a response
-    parsed_content = '\n'.join(parsed_content_list)
-    return jsonify({'parsed_content': parsed_content})
+        parsed_content = '\n'.join(parsed_content_list)
+        return jsonify({'parsed_content': parsed_content})
+    except Exception as e:
+        # Log the error to the console and return it in JSON format
+        print("Error processing image:", e)
+        return jsonify({'error': str(e)}), 500
+
 
 # Run the Flask app
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=58081)
+    app.run(host='0.0.0.0', port=58085)
