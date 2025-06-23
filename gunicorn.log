@@ -1,95 +1,937 @@
-[2025-01-12 08:27:07 +0000] [65046] [INFO] Starting gunicorn 23.0.0
-[2025-01-12 08:27:07 +0000] [65046] [INFO] Listening at: http://0.0.0.0:58090 (65046)
-[2025-01-12 08:27:07 +0000] [65046] [INFO] Using worker: sync
-[2025-01-12 08:27:07 +0000] [65051] [INFO] Booting worker with pid: 65051
-[2025-01-12 08:27:07 +0000] [65052] [INFO] Booting worker with pid: 65052
-[2025-01-12 08:27:07 +0000] [65056] [INFO] Booting worker with pid: 65056
-[2025-01-12 08:27:07 +0000] [65057] [INFO] Booting worker with pid: 65057
-[2025-01-12 08:27:16,373] [ WARNING] easyocr.py:80 - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
-[2025-01-12 08:27:16,403] [ WARNING] easyocr.py:80 - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
-[2025-01-12 08:27:16,507] [ WARNING] easyocr.py:80 - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
-[2025-01-12 08:27:16,659] [ WARNING] easyocr.py:80 - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
-[2025-01-12 08:27:23 +0000] [65046] [INFO] Handling signal: int
-[2025-01-12 08:27:23 +0000] [65051] [INFO] Worker exiting (pid: 65051)
-[2025-01-12 08:27:23 +0000] [65056] [INFO] Worker exiting (pid: 65056)
-[2025-01-12 08:27:23 +0000] [65057] [INFO] Worker exiting (pid: 65057)
-[2025-01-12 08:27:23 +0000] [65052] [INFO] Worker exiting (pid: 65052)
-[2025-01-12 08:27:24 +0000] [65046] [ERROR] Worker (pid:65051) was sent SIGINT!
-[2025-01-12 08:27:24 +0000] [65046] [ERROR] Worker (pid:65052) was sent SIGINT!
-[2025-01-12 08:27:24 +0000] [65046] [ERROR] Worker (pid:65057) was sent SIGINT!
-[2025-01-12 08:27:24 +0000] [65046] [ERROR] Worker (pid:65056) was sent SIGINT!
-[2025-01-12 08:27:24 +0000] [65046] [INFO] Shutting down: Master
-[2025-01-12 08:27:34 +0000] [65632] [INFO] Starting gunicorn 23.0.0
-[2025-01-12 08:27:34 +0000] [65632] [INFO] Listening at: http://0.0.0.0:58090 (65632)
-[2025-01-12 08:27:34 +0000] [65632] [INFO] Using worker: sync
-[2025-01-12 08:27:34 +0000] [65633] [INFO] Booting worker with pid: 65633
-[2025-01-12 08:27:42,388] [ WARNING] easyocr.py:80 - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+[2025-05-11 10:59:51 +0000] [42318] [INFO] Handling signal: int
+[2025-05-11 10:59:51 +0000] [89474] [INFO] Worker exiting (pid: 89474)
+[2025-05-11 10:59:52 +0000] [42318] [ERROR] Worker (pid:89474) was sent SIGINT!
+[2025-05-11 10:59:52 +0000] [42318] [INFO] Shutting down: Master
+[2025-05-11 11:00:03 +0000] [1167] [INFO] Starting gunicorn 23.0.0
+[2025-05-11 11:00:03 +0000] [1167] [INFO] Listening at: http://0.0.0.0:58000 (1167)
+[2025-05-11 11:00:03 +0000] [1167] [INFO] Using worker: sync
+[2025-05-11 11:00:03 +0000] [1175] [INFO] Booting worker with pid: 1175
+[2025-05-11 11:00:05,936] [ WARNING] easyocr.py:80 - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
 Florence2LanguageForConditionalGeneration has generative capabilities, as `prepare_inputs_for_generation` is explicitly overwritten. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
   - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
   - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
   - If you are not the owner of the model architecture class, please contact the model code owner to update it.
 
-image 1/1 /workspace/imgs/temp_image.png: 448x640 81 0s, 254.7ms
-Speed: 7.6ms preprocess, 254.7ms inference, 1.9ms postprocess per image at shape (1, 3, 448, 640)
+image 1/1 /tmp/tmp6sj4b_tu.png: 448x640 44 0s, 55.4ms
+Speed: 1.5ms preprocess, 55.4ms inference, 1.4ms postprocess per image at shape (1, 3, 448, 640)
 no ocr bbox!!!
-[2025-01-12 08:28:23 +0000] [65632] [CRITICAL] WORKER TIMEOUT (pid:65633)
+127.0.0.1 - - [11/May/2025:11:01:48 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
 
-
---------------------------------------
-C++ Traceback (most recent call last):
---------------------------------------
-0   at::_ops::linear::call(at::Tensor const&, at::Tensor const&, std::optional<at::Tensor> const&)
-1   at::native::linear(at::Tensor const&, at::Tensor const&, std::optional<at::Tensor> const&)
-2   at::_ops::addmm::call(at::Tensor const&, at::Tensor const&, at::Tensor const&, c10::Scalar const&, c10::Scalar const&)
-3   at::native::structured_addmm_out_cpu::impl(at::Tensor const&, at::Tensor const&, at::Tensor const&, c10::Scalar const&, c10::Scalar const&, at::Tensor const&)
-4   at::_ops::copy_::call(at::Tensor&, at::Tensor const&, bool)
-5   at::_ops::copy_::redispatch(c10::DispatchKeySet, at::Tensor&, at::Tensor const&, bool)
-6   at::native::copy_(at::Tensor&, at::Tensor const&, bool)
-7   at::TensorIteratorBase::for_each(c10::function_ref<void (char**, long const*, long, long)>, long)
-8   at::TensorIteratorBase::serial_for_each(c10::function_ref<void (char**, long const*, long, long)>, at::Range) const
-
-----------------------
-Error Message Summary:
-----------------------
-FatalError: `Process abort signal` is detected by the operating system.
-  [TimeInfo: *** Aborted at 1736670503 (unix time) try "date -d @1736670503" if you are using GNU date ***]
-  [SignalInfo: *** SIGABRT (@0x10060) received by PID 65633 (TID 0x7fc5f1af5740) from PID 65632 ***]
-
-[2025-01-12 08:28:23 +0000] [65632] [ERROR] Worker (pid:65633) was sent SIGABRT!
-[2025-01-12 08:28:23 +0000] [66457] [INFO] Booting worker with pid: 66457
-[2025-01-12 08:28:32,157] [ WARNING] easyocr.py:80 - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
-Florence2LanguageForConditionalGeneration has generative capabilities, as `prepare_inputs_for_generation` is explicitly overwritten. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
-  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
-  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
-  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
-[2025-01-12 08:29:12 +0000] [65632] [INFO] Handling signal: int
-[2025-01-12 08:29:12 +0000] [66457] [INFO] Worker exiting (pid: 66457)
-[2025-01-12 08:29:12 +0000] [65632] [ERROR] Worker (pid:66457) was sent SIGINT!
-[2025-01-12 08:29:12 +0000] [65632] [INFO] Shutting down: Master
-[2025-01-12 08:30:59 +0000] [68249] [INFO] Starting gunicorn 23.0.0
-[2025-01-12 08:30:59 +0000] [68249] [INFO] Listening at: http://0.0.0.0:58090 (68249)
-[2025-01-12 08:30:59 +0000] [68249] [INFO] Using worker: sync
-[2025-01-12 08:30:59 +0000] [68250] [INFO] Booting worker with pid: 68250
-[2025-01-12 08:31:07,487] [ WARNING] easyocr.py:80 - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
-Florence2LanguageForConditionalGeneration has generative capabilities, as `prepare_inputs_for_generation` is explicitly overwritten. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
-  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
-  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
-  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
-[2025-01-12 08:31:58 +0000] [68249] [INFO] Handling signal: int
-[2025-01-12 08:31:58 +0000] [68250] [INFO] Worker exiting (pid: 68250)
-[2025-01-12 08:31:58 +0000] [68249] [ERROR] Worker (pid:68250) was sent SIGINT!
-[2025-01-12 08:31:58 +0000] [68249] [INFO] Shutting down: Master
-[2025-01-12 08:32:10 +0000] [69124] [INFO] Starting gunicorn 23.0.0
-[2025-01-12 08:32:10 +0000] [69124] [INFO] Listening at: http://0.0.0.0:58090 (69124)
-[2025-01-12 08:32:10 +0000] [69124] [INFO] Using worker: gthread
-[2025-01-12 08:32:10 +0000] [69132] [INFO] Booting worker with pid: 69132
-[2025-01-12 08:32:18,669] [ WARNING] easyocr.py:80 - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
-Florence2LanguageForConditionalGeneration has generative capabilities, as `prepare_inputs_for_generation` is explicitly overwritten. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
-  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
-  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
-  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
-
-image 1/1 /workspace/imgs/temp_image.png: 448x640 81 0s, 436.4ms
-Speed: 5.4ms preprocess, 436.4ms inference, 2.7ms postprocess per image at shape (1, 3, 448, 640)
+image 1/1 /tmp/tmpyox9lhf4.png: 384x640 81 0s, 47.2ms
+Speed: 1.3ms preprocess, 47.2ms inference, 0.5ms postprocess per image at shape (1, 3, 384, 640)
 no ocr bbox!!!
-127.0.0.1 - - [12/Jan/2025:08:34:41 +0000] "POST /process_image HTTP/1.1" 200 1729 "-" "curl/7.81.0"
+127.0.0.1 - - [11/May/2025:11:03:25 +0000] "POST /process_image HTTP/1.1" 200 2218 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpok4r7syx.png: 384x640 89 0s, 75.5ms
+Speed: 3.0ms preprocess, 75.5ms inference, 2.1ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [11/May/2025:11:05:50 +0000] "POST /process_image HTTP/1.1" 200 2711 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmphd9ral15.png: 384x640 194 0s, 95.3ms
+Speed: 5.0ms preprocess, 95.3ms inference, 3.0ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [11/May/2025:11:09:36 +0000] "POST /process_image HTTP/1.1" 200 4573 "-" "python-requests/2.31.0"
+[2025-05-11 11:10:10 +0000] [1167] [ERROR] Worker (pid:1175) was sent SIGKILL! Perhaps out of memory?
+[2025-05-11 11:10:10 +0000] [15327] [INFO] Booting worker with pid: 15327
+[2025-05-11 11:10:15,346] [ WARNING] easyocr.py:80 - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+Florence2LanguageForConditionalGeneration has generative capabilities, as `prepare_inputs_for_generation` is explicitly overwritten. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+
+image 1/1 /tmp/tmpl_b1imq1.png: 384x640 286 0s, 66.1ms
+Speed: 1.2ms preprocess, 66.1ms inference, 4.4ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [11/May/2025:11:13:58 +0000] "POST /process_image HTTP/1.1" 200 5315 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpbdj5v4dg.png: 384x640 290 0s, 43.0ms
+Speed: 1.1ms preprocess, 43.0ms inference, 0.9ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [11/May/2025:11:17:30 +0000] "POST /process_image HTTP/1.1" 200 5364 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmplx0vmiut.png: 384x640 201 0s, 42.2ms
+Speed: 1.2ms preprocess, 42.2ms inference, 0.6ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [11/May/2025:11:20:09 +0000] "POST /process_image HTTP/1.1" 200 4306 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp0ode4mgs.png: 384x640 199 0s, 43.1ms
+Speed: 1.3ms preprocess, 43.1ms inference, 0.9ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [11/May/2025:11:22:45 +0000] "POST /process_image HTTP/1.1" 200 3989 "-" "python-requests/2.31.0"
+[2025-05-12 02:03:01 +0000] [1167] [INFO] Handling signal: int
+[2025-05-12 02:03:01 +0000] [15327] [INFO] Worker exiting (pid: 15327)
+[2025-05-12 02:03:01 +0000] [1167] [ERROR] Worker (pid:15327) was sent SIGINT!
+[2025-05-12 02:03:01 +0000] [1167] [INFO] Shutting down: Master
+[2025-05-17 01:04:36 +0000] [18542] [INFO] Starting gunicorn 23.0.0
+[2025-05-17 01:04:36 +0000] [18542] [INFO] Listening at: http://0.0.0.0:58000 (18542)
+[2025-05-17 01:04:36 +0000] [18542] [INFO] Using worker: sync
+[2025-05-17 01:04:36 +0000] [18543] [INFO] Booting worker with pid: 18543
+[2025-05-17 01:04:40,016] [ WARNING] easyocr.py:80 - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+Florence2LanguageForConditionalGeneration has generative capabilities, as `prepare_inputs_for_generation` is explicitly overwritten. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+
+image 1/1 /tmp/tmppbaptj0k.png: 448x640 44 0s, 84.2ms
+Speed: 2.3ms preprocess, 84.2ms inference, 6.6ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:01:06:47 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpjl5vzl5k.png: 416x640 62 0s, 75.3ms
+Speed: 2.0ms preprocess, 75.3ms inference, 1.0ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:01:08:12 +0000] "POST /process_image HTTP/1.1" 200 2189 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp4imqacnl.png: 416x640 67 0s, 72.3ms
+Speed: 2.5ms preprocess, 72.3ms inference, 1.6ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:01:09:38 +0000] "POST /process_image HTTP/1.1" 200 2322 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpqp5exx75.png: 448x640 44 0s, 76.2ms
+Speed: 2.4ms preprocess, 76.2ms inference, 2.9ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:01:12:27 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp1j7q06al.png: 416x640 62 0s, 49.1ms
+Speed: 1.7ms preprocess, 49.1ms inference, 0.5ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:01:13:46 +0000] "POST /process_image HTTP/1.1" 200 2189 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpx7pchf_f.png: 416x640 67 0s, 48.1ms
+Speed: 1.4ms preprocess, 48.1ms inference, 0.7ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:01:15:11 +0000] "POST /process_image HTTP/1.1" 200 2322 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpvtawdfqp.png: 448x640 44 0s, 110.1ms
+Speed: 4.6ms preprocess, 110.1ms inference, 1.5ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:03:53:10 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp04qfj_ni.png: 416x640 62 0s, 52.6ms
+Speed: 1.4ms preprocess, 52.6ms inference, 0.6ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:03:54:35 +0000] "POST /process_image HTTP/1.1" 200 2189 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp66hlzyh4.png: 416x640 67 0s, 54.5ms
+Speed: 1.6ms preprocess, 54.5ms inference, 0.7ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:03:56:04 +0000] "POST /process_image HTTP/1.1" 200 2322 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp3qkctqlc.png: 448x640 44 0s, 99.5ms
+Speed: 2.5ms preprocess, 99.5ms inference, 3.0ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:04:13:28 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp9q2y7rhq.png: 416x640 62 0s, 51.8ms
+Speed: 1.5ms preprocess, 51.8ms inference, 0.4ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:04:14:53 +0000] "POST /process_image HTTP/1.1" 200 2189 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpnabigrw_.png: 416x640 67 0s, 50.4ms
+Speed: 1.4ms preprocess, 50.4ms inference, 0.5ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:04:16:22 +0000] "POST /process_image HTTP/1.1" 200 2322 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpoic5dg5a.png: 448x640 44 0s, 68.5ms
+Speed: 2.5ms preprocess, 68.5ms inference, 2.7ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:04:27:17 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpcynhkxnh.png: 448x640 44 0s, 75.6ms
+Speed: 2.5ms preprocess, 75.6ms inference, 1.7ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:04:42:37 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpoc54eqe0.png: 416x640 62 0s, 57.5ms
+Speed: 1.5ms preprocess, 57.5ms inference, 0.5ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:04:44:05 +0000] "POST /process_image HTTP/1.1" 200 2189 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpryt6jnkm.png: 416x640 67 0s, 53.5ms
+Speed: 1.5ms preprocess, 53.5ms inference, 1.4ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:04:45:39 +0000] "POST /process_image HTTP/1.1" 200 2322 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpykmjb1gp.png: 448x640 44 0s, 85.0ms
+Speed: 1.9ms preprocess, 85.0ms inference, 0.9ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:04:46:56 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp5q4kt6ns.png: 416x640 62 0s, 55.3ms
+Speed: 1.9ms preprocess, 55.3ms inference, 0.7ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:04:48:22 +0000] "POST /process_image HTTP/1.1" 200 2189 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmphiwo2cxa.png: 416x640 67 0s, 53.1ms
+Speed: 1.6ms preprocess, 53.1ms inference, 1.6ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:04:49:57 +0000] "POST /process_image HTTP/1.1" 200 2322 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp5xwu8uo3.png: 448x640 44 0s, 87.9ms
+Speed: 3.0ms preprocess, 87.9ms inference, 1.1ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:04:52:28 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpcbrrhc39.png: 416x640 62 0s, 56.1ms
+Speed: 1.8ms preprocess, 56.1ms inference, 0.7ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:04:53:57 +0000] "POST /process_image HTTP/1.1" 200 2189 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp2zv6xmt_.png: 416x640 67 0s, 92.8ms
+Speed: 1.7ms preprocess, 92.8ms inference, 0.5ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:04:55:32 +0000] "POST /process_image HTTP/1.1" 200 2322 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmperjlpwa3.png: 448x640 44 0s, 61.3ms
+Speed: 1.5ms preprocess, 61.3ms inference, 0.8ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:04:56:01 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpro07m_74.png: 416x640 62 0s, 56.9ms
+Speed: 1.9ms preprocess, 56.9ms inference, 0.5ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:04:57:29 +0000] "POST /process_image HTTP/1.1" 200 2189 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpjfu1vgdn.png: 416x640 67 0s, 64.8ms
+Speed: 1.5ms preprocess, 64.8ms inference, 1.1ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:04:59:03 +0000] "POST /process_image HTTP/1.1" 200 2322 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmplmykge5j.png: 448x640 44 0s, 66.2ms
+Speed: 1.7ms preprocess, 66.2ms inference, 3.3ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:04:59:58 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmprjmdgzhb.png: 416x640 62 0s, 75.9ms
+Speed: 3.3ms preprocess, 75.9ms inference, 0.5ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:05:01:24 +0000] "POST /process_image HTTP/1.1" 200 2189 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpbw1dvemw.png: 416x640 67 0s, 67.2ms
+Speed: 2.4ms preprocess, 67.2ms inference, 0.9ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:05:02:57 +0000] "POST /process_image HTTP/1.1" 200 2322 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp89ksfgro.png: 448x640 44 0s, 100.0ms
+Speed: 2.6ms preprocess, 100.0ms inference, 1.4ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:05:05:55 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpu5rmdtfl.png: 416x640 62 0s, 74.2ms
+Speed: 1.6ms preprocess, 74.2ms inference, 1.0ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:05:07:19 +0000] "POST /process_image HTTP/1.1" 200 2189 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpcuszjejd.png: 448x640 44 0s, 82.2ms
+Speed: 2.9ms preprocess, 82.2ms inference, 3.5ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:05:09:08 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp1qscrdr1.png: 416x640 62 0s, 59.4ms
+Speed: 1.4ms preprocess, 59.4ms inference, 0.5ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:05:10:33 +0000] "POST /process_image HTTP/1.1" 200 2189 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpz06c8o9e.png: 416x640 67 0s, 54.6ms
+Speed: 1.4ms preprocess, 54.6ms inference, 1.0ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:05:12:04 +0000] "POST /process_image HTTP/1.1" 200 2322 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp90n3vbgj.png: 448x640 44 0s, 85.3ms
+Speed: 2.6ms preprocess, 85.3ms inference, 1.5ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:05:17:55 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpy6crbnp6.png: 416x640 62 0s, 66.5ms
+Speed: 2.3ms preprocess, 66.5ms inference, 1.2ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:05:19:23 +0000] "POST /process_image HTTP/1.1" 200 2189 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpn5lhd5qa.png: 416x640 67 0s, 67.1ms
+Speed: 2.7ms preprocess, 67.1ms inference, 1.0ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:05:20:55 +0000] "POST /process_image HTTP/1.1" 200 2322 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpba7ftwvw.png: 448x640 44 0s, 68.2ms
+Speed: 2.5ms preprocess, 68.2ms inference, 1.7ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:05:30:17 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpo9n9w342.png: 416x640 62 0s, 54.0ms
+Speed: 1.6ms preprocess, 54.0ms inference, 0.5ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:05:31:43 +0000] "POST /process_image HTTP/1.1" 200 2189 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp47j4di8s.png: 416x640 67 0s, 49.7ms
+Speed: 1.5ms preprocess, 49.7ms inference, 0.7ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:05:33:13 +0000] "POST /process_image HTTP/1.1" 200 2322 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpyyu5d56t.png: 448x640 44 0s, 68.8ms
+Speed: 2.5ms preprocess, 68.8ms inference, 4.6ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:05:35:41 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpeha071vl.png: 416x640 62 0s, 64.6ms
+Speed: 2.3ms preprocess, 64.6ms inference, 0.9ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:05:37:08 +0000] "POST /process_image HTTP/1.1" 200 2189 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpd2ow91sx.png: 416x640 67 0s, 57.1ms
+Speed: 1.7ms preprocess, 57.1ms inference, 0.6ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:05:38:42 +0000] "POST /process_image HTTP/1.1" 200 2322 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp0z8ckhqm.png: 448x640 44 0s, 78.8ms
+Speed: 2.5ms preprocess, 78.8ms inference, 1.3ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:05:52:59 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpkzp_qkq_.png: 416x640 62 0s, 54.5ms
+Speed: 1.5ms preprocess, 54.5ms inference, 0.4ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:05:54:26 +0000] "POST /process_image HTTP/1.1" 200 2189 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpmlrspjsi.png: 416x640 67 0s, 52.7ms
+Speed: 1.4ms preprocess, 52.7ms inference, 0.4ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:05:55:58 +0000] "POST /process_image HTTP/1.1" 200 2322 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpdqth9l3t.png: 448x640 44 0s, 66.9ms
+Speed: 2.5ms preprocess, 66.9ms inference, 4.3ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:06:19:57 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpujyx0gxy.png: 352x640 83 0s, 46.2ms
+Speed: 1.1ms preprocess, 46.2ms inference, 0.5ms postprocess per image at shape (1, 3, 352, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:06:20:46 +0000] "POST /process_image HTTP/1.1" 200 1289 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpvgg62fkh.png: 352x640 80 0s, 42.5ms
+Speed: 1.1ms preprocess, 42.5ms inference, 0.5ms postprocess per image at shape (1, 3, 352, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:06:21:35 +0000] "POST /process_image HTTP/1.1" 200 1301 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpgdcd_37e.png: 352x640 81 0s, 43.7ms
+Speed: 1.1ms preprocess, 43.7ms inference, 0.4ms postprocess per image at shape (1, 3, 352, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:06:22:28 +0000] "POST /process_image HTTP/1.1" 200 1396 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpf5a_f421.png: 352x640 38 0s, 41.1ms
+Speed: 1.2ms preprocess, 41.1ms inference, 0.4ms postprocess per image at shape (1, 3, 352, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:06:23:05 +0000] "POST /process_image HTTP/1.1" 200 887 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp2k_gnyjh.png: 352x640 38 0s, 78.3ms
+Speed: 1.5ms preprocess, 78.3ms inference, 1.1ms postprocess per image at shape (1, 3, 352, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:06:23:43 +0000] "POST /process_image HTTP/1.1" 200 849 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmprn_c79vk.png: 352x640 34 0s, 72.4ms
+Speed: 1.3ms preprocess, 72.4ms inference, 0.8ms postprocess per image at shape (1, 3, 352, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:06:24:14 +0000] "POST /process_image HTTP/1.1" 200 753 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmppp7l9yow.png: 448x640 44 0s, 53.7ms
+Speed: 1.6ms preprocess, 53.7ms inference, 0.9ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:06:25:42 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpgsr9inin.png: 448x640 44 0s, 67.7ms
+Speed: 2.5ms preprocess, 67.7ms inference, 1.7ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:06:35:21 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmps1e4d1xy.png: 416x640 64 0s, 45.6ms
+Speed: 1.4ms preprocess, 45.6ms inference, 0.5ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:06:36:13 +0000] "POST /process_image HTTP/1.1" 200 1565 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp38vhdsl_.png: 416x640 69 0s, 44.5ms
+Speed: 1.3ms preprocess, 44.5ms inference, 0.5ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:06:37:07 +0000] "POST /process_image HTTP/1.1" 200 1601 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmperfbtb8o.png: 416x640 57 0s, 47.4ms
+Speed: 1.3ms preprocess, 47.4ms inference, 0.4ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:06:37:44 +0000] "POST /process_image HTTP/1.1" 200 1160 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpwgntbu35.png: 416x640 70 0s, 46.0ms
+Speed: 1.2ms preprocess, 46.0ms inference, 0.4ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:06:38:40 +0000] "POST /process_image HTTP/1.1" 200 1513 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpoe9fofs8.png: 416x640 70 0s, 44.0ms
+Speed: 1.3ms preprocess, 44.0ms inference, 0.4ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:06:39:36 +0000] "POST /process_image HTTP/1.1" 200 1577 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpsmwchdt6.png: 416x640 61 0s, 42.6ms
+Speed: 1.3ms preprocess, 42.6ms inference, 0.4ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:06:40:36 +0000] "POST /process_image HTTP/1.1" 200 1624 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpblhl08cg.png: 416x640 60 0s, 63.1ms
+Speed: 1.3ms preprocess, 63.1ms inference, 0.5ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:06:41:36 +0000] "POST /process_image HTTP/1.1" 200 1589 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpcq4p7ibh.png: 416x640 62 0s, 59.0ms
+Speed: 1.5ms preprocess, 59.0ms inference, 0.7ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:06:42:36 +0000] "POST /process_image HTTP/1.1" 200 1584 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmplxvdn_ld.png: 416x640 61 0s, 48.2ms
+Speed: 1.3ms preprocess, 48.2ms inference, 0.4ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:06:43:35 +0000] "POST /process_image HTTP/1.1" 200 1532 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp7oerq99e.png: 416x640 42 0s, 44.1ms
+Speed: 1.3ms preprocess, 44.1ms inference, 0.4ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:06:44:23 +0000] "POST /process_image HTTP/1.1" 200 1112 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpiivqp9he.png: 416x640 61 0s, 66.1ms
+Speed: 2.5ms preprocess, 66.1ms inference, 0.5ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:06:45:26 +0000] "POST /process_image HTTP/1.1" 200 1487 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp2bgtzc80.png: 448x640 44 0s, 102.6ms
+Speed: 2.4ms preprocess, 102.6ms inference, 1.5ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:11:03:26 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmppa6bxg63.png: 416x640 62 0s, 51.5ms
+Speed: 1.5ms preprocess, 51.5ms inference, 0.5ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:11:04:51 +0000] "POST /process_image HTTP/1.1" 200 2189 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpdo9kzlba.png: 416x640 67 0s, 56.1ms
+Speed: 1.9ms preprocess, 56.1ms inference, 0.9ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:11:06:21 +0000] "POST /process_image HTTP/1.1" 200 2322 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpzc20gga4.png: 448x640 44 0s, 84.6ms
+Speed: 2.6ms preprocess, 84.6ms inference, 2.3ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:11:55:19 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpovivfw_x.png: 352x640 83 0s, 44.7ms
+Speed: 1.2ms preprocess, 44.7ms inference, 0.5ms postprocess per image at shape (1, 3, 352, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:11:56:08 +0000] "POST /process_image HTTP/1.1" 200 1289 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpw5l22yro.png: 352x640 80 0s, 45.0ms
+Speed: 1.2ms preprocess, 45.0ms inference, 0.6ms postprocess per image at shape (1, 3, 352, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:11:56:59 +0000] "POST /process_image HTTP/1.1" 200 1301 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpdstjqodw.png: 352x640 81 0s, 42.6ms
+Speed: 1.2ms preprocess, 42.6ms inference, 0.4ms postprocess per image at shape (1, 3, 352, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:11:57:53 +0000] "POST /process_image HTTP/1.1" 200 1396 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp40915q94.png: 352x640 38 0s, 42.6ms
+Speed: 1.2ms preprocess, 42.6ms inference, 0.4ms postprocess per image at shape (1, 3, 352, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:11:58:30 +0000] "POST /process_image HTTP/1.1" 200 887 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpx0cetcjj.png: 352x640 38 0s, 43.7ms
+Speed: 1.2ms preprocess, 43.7ms inference, 0.5ms postprocess per image at shape (1, 3, 352, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:11:59:07 +0000] "POST /process_image HTTP/1.1" 200 849 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmprcz5fucu.png: 352x640 34 0s, 46.7ms
+Speed: 1.2ms preprocess, 46.7ms inference, 0.4ms postprocess per image at shape (1, 3, 352, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:11:59:39 +0000] "POST /process_image HTTP/1.1" 200 753 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp50twontr.png: 448x640 44 0s, 61.0ms
+Speed: 2.1ms preprocess, 61.0ms inference, 1.6ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:14:05:20 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpd3w9fkde.png: 416x640 64 0s, 46.4ms
+Speed: 1.3ms preprocess, 46.4ms inference, 0.5ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:14:06:11 +0000] "POST /process_image HTTP/1.1" 200 1565 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp5fc3wat3.png: 416x640 69 0s, 40.8ms
+Speed: 1.4ms preprocess, 40.8ms inference, 0.5ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:14:07:01 +0000] "POST /process_image HTTP/1.1" 200 1601 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp376vs8vv.png: 416x640 57 0s, 42.6ms
+Speed: 1.3ms preprocess, 42.6ms inference, 0.5ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:14:07:36 +0000] "POST /process_image HTTP/1.1" 200 1160 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmprwnrtumk.png: 416x640 70 0s, 40.5ms
+Speed: 1.3ms preprocess, 40.5ms inference, 0.4ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:14:08:30 +0000] "POST /process_image HTTP/1.1" 200 1513 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp8149d8pc.png: 416x640 70 0s, 50.0ms
+Speed: 1.7ms preprocess, 50.0ms inference, 0.5ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:14:09:25 +0000] "POST /process_image HTTP/1.1" 200 1577 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp_mmjj8tq.png: 416x640 61 0s, 45.0ms
+Speed: 1.4ms preprocess, 45.0ms inference, 0.7ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:14:10:24 +0000] "POST /process_image HTTP/1.1" 200 1624 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpf2ezj0u_.png: 416x640 60 0s, 41.2ms
+Speed: 1.3ms preprocess, 41.2ms inference, 0.4ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:14:11:21 +0000] "POST /process_image HTTP/1.1" 200 1589 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpzun_zakz.png: 416x640 62 0s, 44.3ms
+Speed: 1.3ms preprocess, 44.3ms inference, 0.4ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:14:12:19 +0000] "POST /process_image HTTP/1.1" 200 1584 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp8iqz9y0i.png: 416x640 61 0s, 41.4ms
+Speed: 1.3ms preprocess, 41.4ms inference, 0.4ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:14:13:15 +0000] "POST /process_image HTTP/1.1" 200 1532 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp4hubr35x.png: 416x640 42 0s, 54.4ms
+Speed: 1.4ms preprocess, 54.4ms inference, 0.5ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:14:14:03 +0000] "POST /process_image HTTP/1.1" 200 1112 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpuabaxjjj.png: 416x640 61 0s, 51.1ms
+Speed: 1.6ms preprocess, 51.1ms inference, 1.2ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [17/May/2025:14:15:04 +0000] "POST /process_image HTTP/1.1" 200 1487 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpuhqdjdia.png: 448x640 44 0s, 65.6ms
+Speed: 2.4ms preprocess, 65.6ms inference, 1.5ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:01:36:12 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpds5_ywsh.png: 416x640 62 0s, 46.8ms
+Speed: 1.4ms preprocess, 46.8ms inference, 0.5ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:01:37:30 +0000] "POST /process_image HTTP/1.1" 200 2189 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpqz3ppa5g.png: 416x640 67 0s, 44.2ms
+Speed: 1.4ms preprocess, 44.2ms inference, 0.4ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:01:38:51 +0000] "POST /process_image HTTP/1.1" 200 2322 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpzhtxhygm.png: 448x640 44 0s, 62.2ms
+Speed: 2.4ms preprocess, 62.2ms inference, 3.0ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:02:02:53 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpi4ugdmv1.png: 416x640 62 0s, 50.4ms
+Speed: 1.7ms preprocess, 50.4ms inference, 0.5ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:02:04:13 +0000] "POST /process_image HTTP/1.1" 200 2189 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp1slh27v8.png: 416x640 67 0s, 57.3ms
+Speed: 1.5ms preprocess, 57.3ms inference, 1.7ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:02:05:36 +0000] "POST /process_image HTTP/1.1" 200 2322 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp05r39tkn.png: 448x640 44 0s, 69.0ms
+Speed: 2.4ms preprocess, 69.0ms inference, 1.7ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:03:28:32 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpic0hbhdx.png: 416x640 62 0s, 55.9ms
+Speed: 1.3ms preprocess, 55.9ms inference, 0.7ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:03:29:54 +0000] "POST /process_image HTTP/1.1" 200 2189 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp63lkoxsj.png: 416x640 67 0s, 97.0ms
+Speed: 1.5ms preprocess, 97.0ms inference, 0.4ms postprocess per image at shape (1, 3, 416, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:03:31:18 +0000] "POST /process_image HTTP/1.1" 200 2322 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpfigwc3kz.png: 448x640 44 0s, 79.6ms
+Speed: 2.4ms preprocess, 79.6ms inference, 2.4ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:03:37:57 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp0o3fwe9q.png: 352x640 83 0s, 47.4ms
+Speed: 1.1ms preprocess, 47.4ms inference, 0.4ms postprocess per image at shape (1, 3, 352, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:03:38:43 +0000] "POST /process_image HTTP/1.1" 200 1289 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpuralalk_.png: 352x640 80 0s, 41.7ms
+Speed: 1.1ms preprocess, 41.7ms inference, 0.4ms postprocess per image at shape (1, 3, 352, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:03:39:31 +0000] "POST /process_image HTTP/1.1" 200 1301 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpm6olsv2x.png: 352x640 81 0s, 38.9ms
+Speed: 1.2ms preprocess, 38.9ms inference, 0.4ms postprocess per image at shape (1, 3, 352, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:03:40:22 +0000] "POST /process_image HTTP/1.1" 200 1396 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmps9ql7jju.png: 352x640 38 0s, 39.2ms
+Speed: 1.1ms preprocess, 39.2ms inference, 0.4ms postprocess per image at shape (1, 3, 352, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:03:40:56 +0000] "POST /process_image HTTP/1.1" 200 887 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp68g1w_i3.png: 352x640 38 0s, 41.0ms
+Speed: 1.1ms preprocess, 41.0ms inference, 0.4ms postprocess per image at shape (1, 3, 352, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:03:41:31 +0000] "POST /process_image HTTP/1.1" 200 849 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp0it60ttu.png: 352x640 34 0s, 39.5ms
+Speed: 1.2ms preprocess, 39.5ms inference, 0.4ms postprocess per image at shape (1, 3, 352, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:03:42:00 +0000] "POST /process_image HTTP/1.1" 200 753 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpqpnup7sw.png: 448x640 44 0s, 92.1ms
+Speed: 2.5ms preprocess, 92.1ms inference, 1.2ms postprocess per image at shape (1, 3, 448, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:03:52:30 +0000] "POST /process_image HTTP/1.1" 200 803 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp2ct56wv4.png: 384x640 13 0s, 48.7ms
+Speed: 1.2ms preprocess, 48.7ms inference, 0.6ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:03:52:42 +0000] "POST /process_image HTTP/1.1" 200 317 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpidq5or_a.png: 384x640 13 0s, 42.2ms
+Speed: 1.4ms preprocess, 42.2ms inference, 0.4ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:03:52:53 +0000] "POST /process_image HTTP/1.1" 200 322 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpnuqxao1i.png: 384x640 35 0s, 47.9ms
+Speed: 1.5ms preprocess, 47.9ms inference, 0.4ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:03:53:21 +0000] "POST /process_image HTTP/1.1" 200 752 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp619_ih2w.png: 384x640 49 0s, 44.7ms
+Speed: 1.3ms preprocess, 44.7ms inference, 0.7ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:03:53:55 +0000] "POST /process_image HTTP/1.1" 200 869 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp19mkh403.png: 384x640 87 0s, 42.1ms
+Speed: 1.2ms preprocess, 42.1ms inference, 0.4ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:03:54:49 +0000] "POST /process_image HTTP/1.1" 200 1456 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmppo6kld03.png: 384x640 88 0s, 40.1ms
+Speed: 1.2ms preprocess, 40.1ms inference, 0.4ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:03:55:46 +0000] "POST /process_image HTTP/1.1" 200 1516 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp447j40xa.png: 384x640 119 0s, 48.8ms
+Speed: 1.2ms preprocess, 48.8ms inference, 1.4ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:03:56:59 +0000] "POST /process_image HTTP/1.1" 200 1926 "-" "python-requests/2.31.0"
+[2025-05-18 03:58:14 +0000] [18542] [ERROR] Worker (pid:18543) was sent SIGKILL! Perhaps out of memory?
+[2025-05-18 03:58:14 +0000] [12731] [INFO] Booting worker with pid: 12731
+[2025-05-18 03:58:19,683] [ WARNING] easyocr.py:80 - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+Florence2LanguageForConditionalGeneration has generative capabilities, as `prepare_inputs_for_generation` is explicitly overwritten. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+
+image 1/1 /tmp/tmpy3oreo_m.png: 384x640 192 0s, 58.9ms
+Speed: 1.3ms preprocess, 58.9ms inference, 4.2ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:01:01 +0000] "POST /process_image HTTP/1.1" 200 4054 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpcoqgs0gv.png: 384x640 219 0s, 43.7ms
+Speed: 1.2ms preprocess, 43.7ms inference, 0.8ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:03:34 +0000] "POST /process_image HTTP/1.1" 200 4519 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpk6y0446y.png: 384x640 176 0s, 46.0ms
+Speed: 1.1ms preprocess, 46.0ms inference, 0.6ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:05:18 +0000] "POST /process_image HTTP/1.1" 200 3108 "-" "python-requests/2.31.0"
+[2025-05-18 04:05:46 +0000] [18542] [ERROR] Worker (pid:12731) was sent SIGKILL! Perhaps out of memory?
+[2025-05-18 04:05:46 +0000] [48917] [INFO] Booting worker with pid: 48917
+[2025-05-18 04:05:50,740] [ WARNING] easyocr.py:80 - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+Florence2LanguageForConditionalGeneration has generative capabilities, as `prepare_inputs_for_generation` is explicitly overwritten. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+
+image 1/1 /tmp/tmphs_thgr7.png: 384x640 226 0s, 60.8ms
+Speed: 1.1ms preprocess, 60.8ms inference, 3.9ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:08:17 +0000] "POST /process_image HTTP/1.1" 200 3691 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpm6ns6rq1.png: 384x640 217 0s, 62.4ms
+Speed: 9.9ms preprocess, 62.4ms inference, 9.8ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:11:05 +0000] "POST /process_image HTTP/1.1" 200 3531 "-" "python-requests/2.31.0"
+[2025-05-18 04:11:32 +0000] [18542] [ERROR] Worker (pid:48917) was sent SIGKILL! Perhaps out of memory?
+[2025-05-18 04:11:32 +0000] [31644] [INFO] Booting worker with pid: 31644
+[2025-05-18 04:11:37,469] [ WARNING] easyocr.py:80 - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+Florence2LanguageForConditionalGeneration has generative capabilities, as `prepare_inputs_for_generation` is explicitly overwritten. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+
+image 1/1 /tmp/tmpw62u12_f.png: 384x640 237 0s, 72.2ms
+Speed: 1.4ms preprocess, 72.2ms inference, 4.1ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:14:23 +0000] "POST /process_image HTTP/1.1" 200 4078 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmprc3ce30j.png: 384x640 210 0s, 40.4ms
+Speed: 1.1ms preprocess, 40.4ms inference, 0.6ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:16:38 +0000] "POST /process_image HTTP/1.1" 200 3373 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp3pltlpj5.png: 384x640 209 0s, 40.3ms
+Speed: 1.1ms preprocess, 40.3ms inference, 0.6ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:18:55 +0000] "POST /process_image HTTP/1.1" 200 3438 "-" "python-requests/2.31.0"
+[2025-05-18 04:19:31 +0000] [18542] [ERROR] Worker (pid:31644) was sent SIGKILL! Perhaps out of memory?
+[2025-05-18 04:19:31 +0000] [51592] [INFO] Booting worker with pid: 51592
+[2025-05-18 04:19:36,126] [ WARNING] easyocr.py:80 - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+Florence2LanguageForConditionalGeneration has generative capabilities, as `prepare_inputs_for_generation` is explicitly overwritten. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+
+image 1/1 /tmp/tmpuimfcsw9.png: 384x640 157 0s, 87.1ms
+Speed: 1.3ms preprocess, 87.1ms inference, 3.5ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:22:03 +0000] "POST /process_image HTTP/1.1" 200 3112 "-" "python-requests/2.31.0"
+[2025-05-18 04:22:25 +0000] [18542] [ERROR] Worker (pid:51592) was sent SIGKILL! Perhaps out of memory?
+[2025-05-18 04:22:25 +0000] [94515] [INFO] Booting worker with pid: 94515
+[2025-05-18 04:22:29,815] [ WARNING] easyocr.py:80 - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+Florence2LanguageForConditionalGeneration has generative capabilities, as `prepare_inputs_for_generation` is explicitly overwritten. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+
+image 1/1 /tmp/tmpp4pv1zin.png: 384x640 283 0s, 58.2ms
+Speed: 1.2ms preprocess, 58.2ms inference, 3.9ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:26:30 +0000] "POST /process_image HTTP/1.1" 200 5914 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp0jy1k5s0.png: 384x640 136 0s, 40.0ms
+Speed: 1.1ms preprocess, 40.0ms inference, 0.5ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:28:11 +0000] "POST /process_image HTTP/1.1" 200 2456 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp4pgco79y.png: 384x640 124 0s, 72.1ms
+Speed: 2.2ms preprocess, 72.1ms inference, 0.6ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:29:47 +0000] "POST /process_image HTTP/1.1" 200 2190 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpqt912en2.png: 384x640 152 0s, 39.6ms
+Speed: 1.1ms preprocess, 39.6ms inference, 0.5ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:31:39 +0000] "POST /process_image HTTP/1.1" 200 2864 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpdi5zkpu9.png: 384x640 123 0s, 42.0ms
+Speed: 1.3ms preprocess, 42.0ms inference, 0.5ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:33:18 +0000] "POST /process_image HTTP/1.1" 200 2259 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpppvpuosf.png: 384x640 144 0s, 41.4ms
+Speed: 1.1ms preprocess, 41.4ms inference, 0.5ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:35:04 +0000] "POST /process_image HTTP/1.1" 200 2632 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpayqgnkp_.png: 384x640 127 0s, 44.9ms
+Speed: 1.1ms preprocess, 44.9ms inference, 0.5ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:36:46 +0000] "POST /process_image HTTP/1.1" 200 2344 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpadjoj1ez.png: 384x640 222 0s, 41.1ms
+Speed: 1.2ms preprocess, 41.1ms inference, 0.7ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:39:12 +0000] "POST /process_image HTTP/1.1" 200 3738 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpj1sc0qm1.png: 384x640 215 0s, 40.9ms
+Speed: 1.2ms preprocess, 40.9ms inference, 0.6ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:41:33 +0000] "POST /process_image HTTP/1.1" 200 3572 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpaan4lorz.png: 384x640 223 0s, 40.3ms
+Speed: 1.2ms preprocess, 40.3ms inference, 1.0ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:44:01 +0000] "POST /process_image HTTP/1.1" 200 3843 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpe26fdf0f.png: 384x640 213 0s, 41.0ms
+Speed: 1.3ms preprocess, 41.0ms inference, 0.6ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:46:23 +0000] "POST /process_image HTTP/1.1" 200 3601 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpcwvyr3sq.png: 384x640 195 0s, 41.2ms
+Speed: 1.2ms preprocess, 41.2ms inference, 1.5ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:48:31 +0000] "POST /process_image HTTP/1.1" 200 3154 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpbg9rb002.png: 384x640 198 0s, 40.8ms
+Speed: 1.2ms preprocess, 40.8ms inference, 0.6ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:50:42 +0000] "POST /process_image HTTP/1.1" 200 3363 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp3fxvyu0f.png: 384x640 208 0s, 40.9ms
+Speed: 1.2ms preprocess, 40.9ms inference, 0.6ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:53:00 +0000] "POST /process_image HTTP/1.1" 200 3647 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpo7rr2k75.png: 384x640 116 0s, 54.6ms
+Speed: 1.1ms preprocess, 54.6ms inference, 0.5ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:54:20 +0000] "POST /process_image HTTP/1.1" 200 1960 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpxkfz1hn5.png: 384x640 209 0s, 55.7ms
+Speed: 1.2ms preprocess, 55.7ms inference, 0.7ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:56:46 +0000] "POST /process_image HTTP/1.1" 200 3757 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp7aci7ao_.png: 384x640 145 0s, 39.7ms
+Speed: 1.2ms preprocess, 39.7ms inference, 0.5ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:04:58:27 +0000] "POST /process_image HTTP/1.1" 200 2522 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp7oynovod.png: 384x640 168 0s, 41.5ms
+Speed: 1.2ms preprocess, 41.5ms inference, 0.5ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:05:00:19 +0000] "POST /process_image HTTP/1.1" 200 2957 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpvucnouuu.png: 384x640 153 0s, 40.9ms
+Speed: 1.2ms preprocess, 40.9ms inference, 0.5ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:05:02:02 +0000] "POST /process_image HTTP/1.1" 200 2666 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp32rbsxfq.png: 384x640 166 0s, 39.6ms
+Speed: 1.2ms preprocess, 39.6ms inference, 0.5ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:05:03:55 +0000] "POST /process_image HTTP/1.1" 200 2928 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpl_epxr_c.png: 384x640 154 0s, 40.6ms
+Speed: 1.2ms preprocess, 40.6ms inference, 0.5ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:05:05:41 +0000] "POST /process_image HTTP/1.1" 200 2600 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmppar5q6ps.png: 384x640 150 0s, 42.4ms
+Speed: 1.3ms preprocess, 42.4ms inference, 0.5ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:05:07:27 +0000] "POST /process_image HTTP/1.1" 200 2665 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpogsehh3x.png: 384x640 175 0s, 40.0ms
+Speed: 1.2ms preprocess, 40.0ms inference, 0.5ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:05:09:31 +0000] "POST /process_image HTTP/1.1" 200 3317 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpwxza12bi.png: 384x640 195 0s, 40.6ms
+Speed: 1.2ms preprocess, 40.6ms inference, 0.6ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:05:11:47 +0000] "POST /process_image HTTP/1.1" 200 3446 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpe9q8wvxd.png: 384x640 186 0s, 40.9ms
+Speed: 1.2ms preprocess, 40.9ms inference, 0.6ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:05:13:57 +0000] "POST /process_image HTTP/1.1" 200 3226 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpx2qzmlp3.png: 384x640 142 0s, 39.0ms
+Speed: 1.2ms preprocess, 39.0ms inference, 0.5ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:05:15:41 +0000] "POST /process_image HTTP/1.1" 200 2791 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmph5unb2zt.png: 384x640 145 0s, 39.1ms
+Speed: 1.3ms preprocess, 39.1ms inference, 0.5ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:05:17:39 +0000] "POST /process_image HTTP/1.1" 200 2851 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpubu0eish.png: 384x640 227 0s, 39.6ms
+Speed: 1.2ms preprocess, 39.6ms inference, 0.6ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:05:20:09 +0000] "POST /process_image HTTP/1.1" 200 3955 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmplhy8r20f.png: 384x640 140 0s, 40.7ms
+Speed: 1.2ms preprocess, 40.7ms inference, 0.5ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:05:22:08 +0000] "POST /process_image HTTP/1.1" 200 2977 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp0c9g323x.png: 384x640 142 0s, 41.9ms
+Speed: 1.2ms preprocess, 41.9ms inference, 0.5ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:05:24:03 +0000] "POST /process_image HTTP/1.1" 200 2666 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpk_2o6njt.png: 384x640 200 0s, 39.5ms
+Speed: 1.2ms preprocess, 39.5ms inference, 0.6ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:05:26:23 +0000] "POST /process_image HTTP/1.1" 200 3655 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmp8hxc7ir3.png: 384x640 24 0s, 40.3ms
+Speed: 1.2ms preprocess, 40.3ms inference, 0.4ms postprocess per image at shape (1, 3, 384, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:05:26:45 +0000] "POST /process_image HTTP/1.1" 200 570 "-" "python-requests/2.31.0"
+
+image 1/1 /tmp/tmpu64k4bqj.png: 352x640 34 0s, 48.0ms
+Speed: 1.5ms preprocess, 48.0ms inference, 0.8ms postprocess per image at shape (1, 3, 352, 640)
+no ocr bbox!!!
+127.0.0.1 - - [18/May/2025:12:31:28 +0000] "POST /process_image HTTP/1.1" 200 753 "-" "curl/8.5.0"
+[2025-05-19 01:38:00 +0000] [18542] [INFO] Handling signal: int
+[2025-05-19 01:38:00 +0000] [94515] [INFO] Worker exiting (pid: 94515)
+[2025-05-19 01:38:00 +0000] [18542] [ERROR] Worker (pid:94515) was sent SIGINT!
+[2025-05-19 01:38:00 +0000] [18542] [INFO] Shutting down: Master
+[2025-05-19 01:42:52 +0000] [14531] [INFO] Starting gunicorn 23.0.0
+[2025-05-19 01:42:52 +0000] [14531] [INFO] Listening at: http://0.0.0.0:58000 (14531)
+[2025-05-19 01:42:52 +0000] [14531] [INFO] Using worker: sync
+[2025-05-19 01:42:52 +0000] [14532] [INFO] Booting worker with pid: 14532
+[2025-05-19 01:42:54,913] [ WARNING] easyocr.py:80 - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+Florence2LanguageForConditionalGeneration has generative capabilities, as `prepare_inputs_for_generation` is explicitly overwritten. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+
+image 1/1 /tmp/tmp5m1y3vqo.png: 352x640 34 0s, 48.0ms
+Speed: 1.0ms preprocess, 48.0ms inference, 0.5ms postprocess per image at shape (1, 3, 352, 640)
+no ocr bbox!!!
+127.0.0.1 - - [19/May/2025:01:43:33 +0000] "POST /process_image HTTP/1.1" 200 753 "-" "curl/8.5.0"
+[2025-05-19 01:48:42 +0000] [14531] [INFO] Handling signal: int
+[2025-05-19 01:48:42 +0000] [14532] [INFO] Worker exiting (pid: 14532)
+[2025-05-19 01:48:43 +0000] [14531] [ERROR] Worker (pid:14532) was sent SIGINT!
+[2025-05-19 01:48:43 +0000] [14531] [INFO] Shutting down: Master
+[2025-05-19 01:50:28 +0000] [29577] [INFO] Starting gunicorn 23.0.0
+[2025-05-19 01:50:28 +0000] [29577] [INFO] Listening at: http://0.0.0.0:58000 (29577)
+[2025-05-19 01:50:28 +0000] [29577] [INFO] Using worker: sync
+[2025-05-19 01:50:28 +0000] [29581] [INFO] Booting worker with pid: 29581
+[2025-05-19 01:50:31,191] [ WARNING] easyocr.py:80 - Neither CUDA nor MPS are available - defaulting to CPU. Note: This module is much faster with a GPU.
+Florence2LanguageForConditionalGeneration has generative capabilities, as `prepare_inputs_for_generation` is explicitly overwritten. However, it doesn't directly inherit from `GenerationMixin`. From 👉v4.50👈 onwards, `PreTrainedModel` will NOT inherit from `GenerationMixin`, and this model will lose the ability to call `generate` and other related functions.
+  - If you're using `trust_remote_code=True`, you can get rid of this warning by loading the model with an auto class. See https://huggingface.co/docs/transformers/en/model_doc/auto#auto-classes
+  - If you are the owner of the model architecture code, please modify your model class such that it inherits from `GenerationMixin` (after `PreTrainedModel`, otherwise you'll get an exception).
+  - If you are not the owner of the model architecture class, please contact the model code owner to update it.
+
+image 1/1 /tmp/tmpuym0wzcs.png: 352x640 77 0s, 77.6ms
+Speed: 1.4ms preprocess, 77.6ms inference, 1.0ms postprocess per image at shape (1, 3, 352, 640)
+no ocr bbox!!!
+127.0.0.1 - - [19/May/2025:01:51:27 +0000] "POST /process_image HTTP/1.1" 200 1342 "-" "curl/8.5.0"
+[2025-05-19 03:06:43 +0000] [29577] [INFO] Handling signal: winch
+[2025-05-19 03:06:43 +0000] [29577] [INFO] Handling signal: winch
+[2025-05-19 03:06:43 +0000] [29577] [INFO] Handling signal: winch
+[2025-05-19 03:06:43 +0000] [29577] [INFO] Handling signal: winch
+[2025-05-19 03:06:43 +0000] [29577] [INFO] Handling signal: winch
+[2025-05-19 03:06:43 +0000] [29577] [INFO] Handling signal: winch
+[2025-05-19 03:06:43 +0000] [29577] [INFO] Handling signal: winch
+[2025-05-19 03:08:18 +0000] [29577] [INFO] Handling signal: winch
+[2025-05-19 03:08:18 +0000] [29577] [INFO] Handling signal: winch
+[2025-05-19 03:08:18 +0000] [29577] [INFO] Handling signal: winch
+[2025-05-19 03:08:18 +0000] [29577] [INFO] Handling signal: winch
+[2025-05-19 03:08:18 +0000] [29577] [INFO] Handling signal: winch
+[2025-05-19 03:08:18 +0000] [29577] [INFO] Handling signal: winch
+[2025-05-19 03:08:18 +0000] [29577] [INFO] Handling signal: winch
+[2025-05-19 03:08:18 +0000] [29577] [INFO] Handling signal: winch
+[2025-05-19 03:08:19 +0000] [29577] [INFO] Handling signal: winch
+[2025-05-19 03:08:19 +0000] [29577] [INFO] Handling signal: winch
+[2025-05-19 03:08:19 +0000] [29577] [INFO] Handling signal: winch
+[2025-05-19 03:08:19 +0000] [29577] [INFO] Handling signal: winch
+[2025-05-19 03:08:19 +0000] [29577] [INFO] Handling signal: winch
+[2025-05-19 03:08:19 +0000] [29577] [INFO] Handling signal: winch
+[2025-05-19 03:46:12 +0000] [29577] [INFO] Handling signal: winch
+[2025-05-19 03:50:21 +0000] [29577] [INFO] Handling signal: winch
+[2025-05-19 03:50:22 +0000] [29577] [INFO] Handling signal: winch
+[2025-05-19 03:52:06 +0000] [29577] [INFO] Handling signal: int
+[2025-05-19 03:52:06 +0000] [29581] [INFO] Worker exiting (pid: 29581)
+[2025-05-19 03:52:06 +0000] [29577] [ERROR] Worker (pid:29581) was sent SIGINT!
+[2025-05-19 03:52:06 +0000] [29577] [INFO] Shutting down: Master
