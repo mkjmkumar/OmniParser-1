@@ -180,17 +180,19 @@ gunicorn -w 4 -b 0.0.0.0:58090 app:app --log-level info --capture-output --worke
 ## Option-3 : Run Gunicorn with the following command to capture logs in /workspace/gunicorn.log
 gunicorn -w 1 -b 0.0.0.0:58090 app:app --log-level info --access-logfile gunicorn.log --error-logfile gunicorn.log --capture-output --timeout 120
 
-
 ## Option-4 CPU-Faster OCR: Run Gunicorn with the following command to capture logs in /workspace/gunicorn.log
 gunicorn -w 1 -b 0.0.0.0:58090 app_cpu:app --log-level info --access-logfile gunicorn.log --error-logfile gunicorn.log --capture-output --timeout 120
 
 ## Option-5 GPU-Quality OCR: Run Gunicorn with the following command to capture logs in /workspace/gunicorn.log
 gunicorn -w 1 -b 0.0.0.0:58090 app_gpu:app --log-level info --access-logfile gunicorn.log --error-logfile gunicorn.log --capture-output --timeout 120
 
+## Option-6 GPU-Quality OCR: Run Gunicorn with the following command to capture logs in /workspace/gunicorn.log
+python gradio_demo_final.py 
 
 ## Call the OmniParser API
-curl -X POST http://host.docker.internal:58090/process_image  -F "file=@/workspace/imgs/temp_image.png"
+curl -X POST http://host.docker.internal:52000/ocr  -F "image=@/workspace/imgs/temp_image.png"
 
+curl -I http://host.docker.internal:52000/health
 
 ## You can access the Swagger documentation by navigating to:
 http://localhost:58090/apidocs/
